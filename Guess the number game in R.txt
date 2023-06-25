@@ -1,0 +1,30 @@
+# Guess the Number Game
+
+# Generate a random number between 1 and 10
+target <- sample(1:10, 1)
+
+# Function to check if the guess is correct
+check_guess <- function(guess) {
+  if (guess == target) {
+    return("Congratulations! You guessed the correct number!")
+  } else if (guess < target) {
+    return("Too low. Try again!")
+  } else {
+    return("Too high. Try again!")
+  }
+}
+
+# Game loop
+while (TRUE) {
+  # Read the player's guess
+  guess <- as.integer(readline("Guess a number between 1 and 10: "))
+  
+  # Check the guess
+  result <- check_guess(guess)
+  cat(result, "\n\n")
+  
+  # Break the loop if the guess is correct
+  if (result == "Congratulations! You guessed the correct number!") {
+    break
+  }
+}
